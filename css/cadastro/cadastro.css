@@ -1,0 +1,184 @@
+/* ==========================================================
+   CADASTRO INTERESTELAR
+   ========================================================== */
+
+/* ---------- FUNDO ---------- */
+
+html {
+    background: #000;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #000 url("../../img/fundos/baixados.jpg") center / cover no-repeat fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ---------- FONTE (vale para tudo dentro do cadastro) ---------- */
+
+.container,
+.container * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ---------- CONTAINER DE CADASTRO ---------- */
+
+.container {
+    width: 420px;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    color: white;
+    padding: 30px 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+
+/* ---------- TÍTULO ---------- */
+
+.container h1 {
+    font-size: 32px;
+    text-align: center;
+    margin: 0 0 10px;
+}
+
+
+/* ---------- CAMPOS DE CADASTRO ---------- */
+
+.container .input-cadastro {
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Rótulos (Nome, E-mail, Senha...) */
+.container .input-cadastro label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Inputs */
+.container .input-cadastro input {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 40px;
+    outline: none;
+    font-size: 15px;
+    color: white;
+    padding: 12px 20px;
+}
+
+/* Placeholder */
+.container .input-cadastro input::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+/* Campo em foco */
+.container .input-cadastro input:focus {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ---------- BOTÃO CADASTRAR ---------- */
+
+.container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: white;
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Ao passar o mouse */
+.container button[type="submit"]:hover {
+    background: cadetblue;
+    color: white;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(95, 158, 160, 0.6);
+}
+
+/* Ao clicar */
+.container button[type="submit"]:active {
+    transform: scale(0.96);
+}
+
+/* Enquanto cadastra (botão travado pelo JavaScript) */
+.container button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ---------- MENSAGEM ---------- */
+
+.container #mensagemCadastro {
+    text-align: center;
+    font-size: 13px;
+    margin: 10px 0 0;
+    min-height: 16px;
+}
+
+
+/* ---------- LINK PARA LOGIN ("Já tem uma conta?") ---------- */
+
+.container .register-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.container .register-link p {
+    margin: 0;
+    font-size: 16px;
+    color: white;
+}
+
+.container .register-link a {
+    color: #66cfff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container .register-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* ---------- RESPONSIVIDADE ---------- */
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 25px 20px;
+    }
+
+    .container h1 {
+        font-size: 28px;
+    }
+}

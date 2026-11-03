@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz · Gargantua</title>
+  <meta name="theme-color" content="#02040a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="../css/painel/quiz.css">
+
+</head>
+<body>
+
+  <main class="quiz" id="quiz" aria-labelledby="quizTitle">
+    <div class="orb" aria-hidden="true"><span></span></div>
+
+    <div class="card">
+
+      <!-- Cabeçalho: título, progresso e pontos -->
+      <header class="card__head">
+        <p class="eyebrow">Quiz · Interestelar</p>
+        <h1 class="title" id="quizTitle">Quanto você sabe sobre Gargantua?</h1>
+
+        <div class="meta">
+          <span class="meta__count" id="counter">Pergunta 1 de 5</span>
+          <span class="meta__score">Acertos: <strong id="score">0</strong></span>
+        </div>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" aria-label="Progresso do quiz" id="progress">
+          <span id="progressBar"></span>
+        </div>
+      </header>
+
+      <!-- Pergunta atual -->
+      <section class="view" id="questionView" aria-live="polite">
+        <h2 class="question" id="question"></h2>
+        <div class="options" id="options" role="group" aria-labelledby="question"></div>
+
+        <div class="feedback" id="feedback" hidden>
+          <p class="feedback__title" id="feedbackTitle"></p>
+          <p class="feedback__text" id="feedbackText"></p>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="nextBtn" type="button" hidden>Próxima pergunta</button>
+        </div>
+      </section>
+
+      <!-- Resultado final -->
+      <section class="view result" id="resultView" hidden>
+        <div class="ring" id="ring" style="--pct: 0">
+          <div class="ring__inner">
+            <strong id="finalScore">0/5</strong>
+            <span>acertos</span>
+          </div>
+        </div>
+        <h2 class="result__title" id="resultTitle"></h2>
+        <p class="result__text" id="resultText"></p>
+        <div class="actions">
+          <button class="btn" id="restartBtn" type="button">Jogar novamente</button>
+          
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="../javaScript/quiz.js"></script>
+</body>
+</html>

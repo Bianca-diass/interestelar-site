@@ -1,0 +1,122 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Slab", serif;
+}
+
+/* FUNDO */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    isolation: isolate;
+    overflow-x: hidden;
+    background: #080e18;
+}
+
+/* IMAGEM DE FUNDO COM MOVIMENTO SUAVE */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -20px;
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.25),
+            rgba(0, 0, 0, 0.45)
+        ),
+        url('../img/imagem.com.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    animation: movimentoEspacial 22s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+/* SOMBREAMENTO SUAVE NAS BORDAS */
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: radial-gradient(
+        ellipse at center,
+        transparent 35%,
+        rgba(0, 0, 0, 0.12) 65%,
+        rgba(0, 0, 0, 0.50) 100%
+    );
+}
+
+/* MOVIMENTO DO FUNDO */
+
+@keyframes movimentoEspacial {
+    0% {
+        transform: scale(1);
+        background-position: center;
+    }
+
+    100% {
+        transform: scale(1.08);
+        background-position: 54% 46%;
+    }
+}
+
+/* CAIXA PRINCIPAL: NÃO CRIA UMA SEGUNDA BORDA */
+
+.container {
+    width: 420px;
+    max-width: 90%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    color: white;
+}
+
+/* LINKS */
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus-visible {
+    color: #66cfff;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        max-width: 90%;
+    }
+}
+
+/* ACESSIBILIDADE: REDUZ MOVIMENTOS */
+
+@media (prefers-reduced-motion: reduce) {
+    body::before {
+        animation: none;
+    }
+}

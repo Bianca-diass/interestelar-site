@@ -1,0 +1,960 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo: #f2f1ed;
+    --azul: #294970;
+    --azul-escuro: #101923;
+    --branco: #ffffff;
+    --texto: #252525;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    background: var(--fundo);
+    font-family: 'Poppins', sans-serif;
+    color: var(--texto);
+    overflow-x: hidden;
+}
+
+/* MENU */
+
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--branco);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.topo-conteudo {
+    max-width: 1250px;
+    margin: auto;
+    padding: 14px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-decoration: none;
+    color: var(--azul-escuro);
+}
+
+.logo strong {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.logo span {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #5b6b7e;
+}
+
+.menu {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+}
+
+.menu a {
+    position: relative;
+    padding: 6px 0;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--texto);
+    transition: color 0.3s ease;
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--azul);
+    transition: width 0.3s ease;
+}
+
+.menu a:hover {
+    color: var(--azul);
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+
+/* IMAGEM DO TOPO */
+.banner {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 80vh;
+  overflow: hidden;
+}
+
+.banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fade 30s infinite;
+}
+
+.banner img:nth-child(1) { animation-delay: 0s; }
+.banner img:nth-child(2) { animation-delay: 5s; }
+.banner img:nth-child(3) { animation-delay: 10s; }
+.banner img:nth-child(4) { animation-delay: 15s; }
+.banner img:nth-child(5) { animation-delay: 20s; }
+.banner img:nth-child(6) { animation-delay: 25s; }
+.banner img:nth-child(7) { animation-delay: 25s; }
+
+@keyframes fade {
+  0%      { opacity: 0; }
+  3%      { opacity: 1; }
+  16.67%  { opacity: 1; }
+  20%     { opacity: 0; }
+  100%    { opacity: 0; }
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+main {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 35px 25px 60px;
+}
+
+/* BASTIDORES */
+
+.bastidores {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 35px 50px;
+    margin-bottom: 60px;
+    background: #d4d4d2;
+    border-radius: 35px;
+}
+
+.bastidores-texto {
+    width: 50%;
+    text-align: center;
+}
+
+/*COMO O ESPAÇO FOI FILMADO*/
+.bastidores-texto h2 {
+    margin-bottom: 18px;
+    font-size: 35px;
+    line-height: 1.2;
+    color: var(--azul-escuro);
+}
+
+.bastidores-texto p {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    text-align: justify;
+    hyphens: auto;
+}
+
+.btn-saiba-mais {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 12px 28px;
+    border: 1px solid var(--azul);
+    border-radius: 30px;
+    background: var(--azul);
+    color: var(--branco);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-saiba-mais:hover {
+    background: transparent;
+    color: var(--azul);
+    transform: translateY(-2px);
+}
+
+.video-interestelar {
+    width: 50%;
+}
+
+.video-interestelar iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    border-radius: 12px;
+}
+
+/* TÍTULOS */
+
+.secao-titulo {
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: clamp(28px, 4vw, 40px);
+    color: var(--azul-escuro);
+}
+
+/* CURIOSIDADES */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 490px;
+    list-style: none;
+    overflow: hidden;
+    border-radius: 25px;
+    isolation: isolate;
+}
+
+.item {
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 250px);
+    width: 240px;
+    height: 340px;
+    transform: translateY(-50%);
+    overflow: hidden;
+    border-radius: 35px;
+    background-color: #26394d;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    transition:
+        left 0.6s ease,
+        width 0.6s ease,
+        height 0.6s ease,
+        opacity 0.6s ease;
+}
+
+/* IMAGENS DAS CURIOSIDADES */
+
+.item.gargantua {
+    background-image: url("../../img/painel/buraco-negro.jpg");
+}
+
+.item.oceano {
+    background-image: url("../../img/painel/planeta-oceano.jpg");
+}
+
+.item.organ {
+    background-image: url("../../img/painel/organ-trilha.jpg");
+}
+
+.item.thorne {
+    background-image: url("../../img/painel/Kip Thorne.jpg");
+}
+
+.item.oscar {
+    background-image: url("../../img/painel/Oscar.jpg");
+}
+
+.item.relatividade {
+    background-image: url("../../img/painel/relatividade.jpg");
+}
+
+.item.cooper {
+    background-image: url("../../img/painel/cooper.jpg");
+}
+
+.item.robos {
+    background-image: url("../../img/painel/robos.jpg");
+}
+
+.item.milharal {
+    background-image: url("../../img/painel/milharal.jpg");
+}
+
+/* CAMADA ESCURA */
+
+.item::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(10, 20, 35, 0.88),
+        rgba(10, 20, 35, 0.38)
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* CARD PRINCIPAL */
+
+.item:first-child {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    border: none;
+    border-radius: 25px;
+    z-index: 3;
+}
+
+/* CARDS LATERAIS */
+
+.item:nth-child(2) {
+    left: calc(100% - 320px);
+    z-index: 4;
+}
+
+.item:nth-child(3) {
+    left: calc(100% - 60px);
+    z-index: 4;
+}
+
+.item:nth-child(4) {
+    left: calc(100% + 200px);
+    z-index: 2;
+}
+
+.item:nth-child(5) {
+    left: calc(100% + 460px);
+    z-index: 1;
+}
+
+.item:nth-child(6) {
+    left: calc(100% + 720px);
+    z-index: 1;
+}
+
+.item:nth-child(n + 7) {
+    left: calc(100% + 980px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* TEXTO DAS CURIOSIDADES */
+
+.content {
+    position: absolute;
+    left: 35px;
+    bottom: 35px;
+    width: min(520px, calc(100% - 70px));
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.item:first-child .content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.title {
+    margin-bottom: 16px;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 600;
+    line-height: 1.3;
+    background: linear-gradient(
+        90deg,
+        #8a8a8a,
+        #ffffff 50%,
+        #8a8a8a
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: brilho 3s linear infinite;
+}
+
+@keyframes brilho {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.description {
+    max-width: 500px;
+    color: #e5e8ed;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    letter-spacing: 0.3px;
+    text-align: justify;
+    hyphens: auto;
+}
+
+/* BOTÕES DAS CURIOSIDADES */
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.btn {
+    min-width: 120px;
+    padding: 12px 22px;
+    border: 1px solid var(--azul);
+    border-radius: 30px;
+    background: transparent;
+    color: var(--azul);
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--azul);
+    color: var(--branco);
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   ELENCO EM CARDS
+========================================== */
+
+.elenco {
+    width: 100%;
+    margin-top: 90px;
+    padding: 45px 35px;
+    background: #101923;
+    border-radius: 28px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.elenco-legenda {
+    margin-bottom: 10px;
+    color: #9fb9d6;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+
+.elenco-titulo {
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+.elenco-subtitulo {
+    max-width: 600px;
+    margin: 14px auto 32px;
+    padding: 0 15px;
+    color: #c2ccd8;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* GRADE DOS CARDS */
+
+.elenco-grid {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    text-align: left;
+}
+
+/* CARD INDIVIDUAL */
+
+.elenco-grid > article {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 9px;
+    overflow: hidden;
+    background: #192d43;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.22);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.elenco-grid > article:hover {
+    transform: translateY(-5px);
+    border-color: rgba(159, 185, 214, 0.65);
+}
+
+/* FOTO DOS ATORES */
+
+.elenco-grid > article img {
+    display: block;
+    width: 100%;
+    height: 155px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 7px;
+}
+
+/* INFORMAÇÕES DOS ATORES */
+
+.elenco-grid .actor-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 3px 4px;
+    gap: 3px;
+}
+
+.elenco-grid .actor-info > span {
+    color: #9fb9d6;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.elenco-grid .actor-info h3 {
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.elenco-grid .actor-info h4 {
+    color: #a9c5e5;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.elenco-grid .actor-info p {
+    margin-top: 5px;
+    color: #d3dce7;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+/* ==========================================
+   RESPONSIVIDADE — TABLETS
+========================================== */
+
+@media (max-width: 768px) {
+
+    .topo-conteudo {
+        padding: 12px 15px;
+    }
+
+    .logo strong {
+        font-size: 18px;
+    }
+
+    .menu {
+        gap: 18px;
+    }
+
+    .menu a {
+        font-size: 12px;
+    }
+
+    .inicio-box {
+        height: 55vh;
+        min-height: 300px;
+    }
+
+    main {
+        padding: 25px 15px 40px;
+    }
+
+    .bastidores {
+        flex-direction: column;
+        padding: 30px 20px;
+        gap: 25px;
+        margin-bottom: 45px;
+    }
+
+    .bastidores-texto,
+    .video-interestelar {
+        width: 100%;
+    }
+
+    .bastidores-texto h2 {
+        font-size: 28px;
+    }
+
+    .slider {
+        height: 460px;
+    }
+
+    .item {
+        width: 180px;
+        height: 270px;
+    }
+
+    .item:nth-child(2) {
+        left: calc(100% - 150px);
+    }
+
+    .item:nth-child(3) {
+        left: calc(100% + 45px);
+    }
+
+    .item:nth-child(4) {
+        left: calc(100% + 240px);
+    }
+
+    .item:nth-child(n + 5) {
+        left: calc(100% + 435px);
+    }
+
+    .content {
+        left: 20px;
+        bottom: 25px;
+        width: calc(100% - 40px);
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    /* ELENCO */
+
+    .elenco {
+        margin-top: 60px;
+        padding: 35px 20px;
+    }
+
+    .elenco-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .elenco-grid > article img {
+        height: 140px;
+    }
+}
+
+/* ==========================================
+   RESPONSIVIDADE — CELULARES
+========================================== */
+
+@media (max-width: 480px) {
+
+    .topo-conteudo {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .logo {
+        align-items: center;
+    }
+
+    .menu {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .menu a {
+        font-size: 11px;
+    }
+
+    .inicio-box {
+        height: 45vh;
+        min-height: 250px;
+    }
+
+    .bastidores {
+        padding: 25px 16px;
+        border-radius: 25px;
+    }
+
+    .bastidores-texto h2 {
+        font-size: 23px;
+    }
+
+    .slider {
+        height: 480px;
+    }
+
+    .content {
+        left: 16px;
+        bottom: 20px;
+        width: calc(100% - 32px);
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .description {
+        font-size: 11px;
+        line-height: 1.65;
+    }
+
+    .btn {
+        min-width: 105px;
+        padding: 10px 15px;
+    }
+
+    /* ELENCO NO CELULAR */
+
+    .elenco {
+        margin-top: 45px;
+        padding: 30px 13px;
+        border-radius: 20px;
+    }
+
+    .elenco-legenda {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .elenco-titulo {
+        font-size: 27px;
+    }
+
+    .elenco-subtitulo {
+        font-size: 12px;
+    }
+
+    .elenco-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 11px;
+    }
+
+    .elenco-grid > article {
+        padding: 7px;
+    }
+
+    .elenco-grid > article img {
+        height: 125px;
+    }
+
+    .elenco-grid .actor-info {
+        padding: 9px 2px 3px;
+    }
+
+    .elenco-grid .actor-info h3 {
+        font-size: 12px;
+    }
+
+    .elenco-grid .actor-info h4 {
+        font-size: 10px;
+    }
+
+    .elenco-grid .actor-info p {
+        font-size: 9px;
+    }
+}
+
+/* ==========================================
+   EFEITO ESPACIAL — SOMENTE NO ELENCO
+========================================== */
+
+.elenco {
+    position: relative;
+    isolation: isolate;
+}
+
+/* ESTRELAS AO FUNDO */
+
+.elenco::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, #ffffff 70%, transparent),
+        radial-gradient(1px 1px at 25% 70%, #ffffff 70%, transparent),
+        radial-gradient(2px 2px at 45% 30%, #b9d9ff 70%, transparent),
+        radial-gradient(1px 1px at 65% 80%, #ffffff 70%, transparent),
+        radial-gradient(2px 2px at 80% 15%, #ffffff 70%, transparent),
+        radial-gradient(1px 1px at 90% 55%, #b9d9ff 70%, transparent),
+        radial-gradient(2px 2px at 35% 90%, #ffffff 70%, transparent);
+
+    background-size: 350px 250px;
+    animation: estrelas-piscando 4s ease-in-out infinite alternate;
+}
+
+/* ESTRELAS PISCANDO */
+
+@keyframes estrelas-piscando {
+    from {
+        opacity: 0.35;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ==========================================
+   UNIVERSO ANIMADO — SEÇÃO ELENCO
+========================================== */
+
+.elenco {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(40, 85, 145, 0.35), transparent 40%),
+        radial-gradient(ellipse at 85% 75%, rgba(35, 75, 125, 0.30), transparent 45%),
+        radial-gradient(ellipse at 50% 50%, rgba(20, 45, 75, 0.45), transparent 70%),
+        #080f19;
+}
+
+/* NEBULOSA EM MOVIMENTO */
+
+.elenco::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+        radial-gradient(ellipse at 30% 40%,
+            rgba(65, 115, 190, 0.18), transparent 25%),
+        radial-gradient(ellipse at 70% 60%,
+            rgba(100, 145, 210, 0.14), transparent 30%),
+        radial-gradient(ellipse at 50% 20%,
+            rgba(45, 90, 150, 0.15), transparent 35%);
+
+    filter: blur(35px);
+    animation: nebulosa 18s ease-in-out infinite alternate;
+}
+
+@keyframes nebulosa {
+    0% {
+        transform: translate(-3%, -2%) scale(1);
+    }
+
+    50% {
+        transform: translate(3%, 2%) scale(1.1);
+    }
+
+    100% {
+        transform: translate(-2%, 4%) scale(1.05);
+    }
+}
+
+/* CAMADA DE ESTRELAS */
+
+.elenco::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(2px 2px at 10% 15%, white 70%, transparent),
+        radial-gradient(3px 3px at 25% 35%, #a9d5ff 70%, transparent),
+        radial-gradient(2px 2px at 45% 12%, white 70%, transparent),
+        radial-gradient(3px 3px at 65% 25%, #d7eaff 70%, transparent),
+        radial-gradient(2px 2px at 85% 15%, white 70%, transparent),
+        radial-gradient(2px 2px at 15% 65%, #a9d5ff 70%, transparent),
+        radial-gradient(3px 3px at 35% 80%, white 70%, transparent),
+        radial-gradient(2px 2px at 55% 60%, white 70%, transparent),
+        radial-gradient(3px 3px at 78% 75%, #a9d5ff 70%, transparent),
+        radial-gradient(2px 2px at 95% 50%, white 70%, transparent);
+
+    background-size: 500px 350px;
+    animation: estrelas 5s ease-in-out infinite alternate;
+}
+
+@keyframes estrelas {
+    from {
+        opacity: 0.35;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ESTRELAS CADENTES */
+
+.elenco-cadente {
+    position: absolute;
+    top: 15%;
+    left: -15%;
+    width: 180px;
+    height: 2px;
+    z-index: 2;
+    pointer-events: none;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.9),
+        #ffffff
+    );
+
+    box-shadow: 0 0 12px #8ecbff;
+
+    transform: rotate(-35deg);
+    animation: cadente 5s linear infinite;
+}
+
+@keyframes cadente {
+    0% {
+        left: -20%;
+        top: 15%;
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    30% {
+        left: 110%;
+        top: 65%;
+        opacity: 0;
+    }
+
+    100% {
+        left: 110%;
+        top: 65%;
+        opacity: 0;
+    }
+}
+
+/* CONTEÚDO ACIMA DAS ESTRELAS */
+
+.elenco > * {
+    position: relative;
+    z-index: 3;
+}
